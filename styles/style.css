@@ -1,0 +1,240 @@
+:root {
+  --lightBlue: #9ae7c9;
+  --pink: #ff99a9;
+  --black: #17111a;
+  --red: #d04153;
+  --brighterGreen: #d5f66e;
+  --offWhite: #dfcbbf;
+  --filterColor: rgba(241, 139, 105, 0.15);
+}
+
+footer,
+footer a {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  z-index: 200;
+  color: var(--pink);
+}
+
+.image {
+  border-radius: 15px;
+}
+
+.field1 {
+  z-index: -2;
+  width: 101%;
+  height: 100%;
+  background-image: url(../media/images/field.svg);
+  background-attachment: scroll;
+  background-repeat: repeat-x;
+  background-size: 75% auto;
+  filter: drop-shadow(0 -15px 50px var(--brighterGreen));
+  animation: dandelionField 25s infinite alternate forwards;
+}
+
+.mountain {
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  background-image: url(../media/images/mountain.svg);
+  background-repeat: repeat-x;
+  background-size: 75% auto;
+  filter: drop-shadow(0 -15px 50px var(--pink));
+  animation: dandelionField 50s infinite alternate-reverse forwards;
+}
+
+.dandelionSeed {
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  position: -50% -50%;
+  background-image: url(../media/images/dandelion_seed.svg);
+  background-repeat: repeat;
+  background-size: 576px auto;
+  filter: drop-shadow(0 0 25px var(--offWhite));
+  animation: dandelionSeed 50s infinite linear forwards;
+}
+
+.star1 {
+  z-index: -6;
+  width: 100%;
+  height: 100%;
+  background-image: url(../media/images/stars.svg);
+  background-repeat: repeat;
+  background-size: 576px auto;
+  animation: star1 24s infinite linear forwards;
+}
+
+.staticPlanet {
+  width: 100%;
+  height: auto;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 -15px 50px #c766b2);
+}
+
+.scanlines {
+  position: absolute;
+  z-index: 98;
+  height: 100%;
+  width: 100%;
+  opacity: 0.1;
+  background-image: url(../media/images/scanline.svg);
+  background-repeat: repeat;
+  background-size: 100% 0.5%;
+
+  animation: moveBGDown 50s infinite linear;
+}
+.brightLine {
+  position: absolute;
+  z-index: 97;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  background-image: url(../media/images/brightline.svg);
+  background-repeat: repeat-x;
+  background-size: 100% 3%;
+  filter: drop-shadow(0 10px 15px var(--lightBlue));
+
+  animation: moveBGDown 50s infinite linear;
+}
+
+.outerGradient {
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  background: radial-gradient(circle, var(--filterColor) 70%, var(--black) 95%);
+}
+
+.grain {
+  z-index: 95;
+  height: 300%;
+  left: -50%;
+  opacity: 0.6;
+  position: fixed;
+  top: -100%;
+  width: 300%;
+  opacity: 0.05;
+  background-size: 2048px auto;
+  background-image: url(../media/images/noise.png);
+  animation: grain 8s steps(10) infinite;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  overflow: hidden;
+  background: black;
+  margin: 0;
+  padding: 0;
+  background-color: var(--black);
+}
+
+.image {
+  vertical-align: middle;
+  user-select: none;
+  width: 100%;
+  height: 100%;
+}
+
+.image * {
+  user-select: none;
+  position: absolute;
+  vertical-align: middle;
+  padding: 0;
+  margin: 0;
+  align-self: center;
+}
+
+@keyframes moveBGDown {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+@keyframes moveBGRight {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+@keyframes dandelionSeed {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 576px -1152px;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes dandelionField {
+  0% {
+    background-position: 100% 95%;
+  }
+
+  100% {
+    background-position: -100% 103%;
+  }
+}
+
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -10%);
+  }
+  20% {
+    transform: translate(-15%, 5%);
+  }
+  30% {
+    transform: translate(7%, -25%);
+  }
+  40% {
+    transform: translate(-5%, 25%);
+  }
+  50% {
+    transform: translate(-15%, 10%);
+  }
+  60% {
+    transform: translate(15%, 0%);
+  }
+  70% {
+    transform: translate(0%, 15%);
+  }
+  80% {
+    transform: translate(3%, 35%);
+  }
+  90% {
+    transform: translate(-10%, 10%);
+  }
+}
+@keyframes star1 {
+  0% {
+    background-position: 576px 0;
+    filter: drop-shadow(0 0 25px var(--offWhite));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 5px var(--offWhite));
+  }
+
+  100% {
+    background-position: 0px 0;
+    filter: drop-shadow(0 0 25px var(--offWhite));
+  }
+}
